@@ -1,1 +1,1 @@
-# Java-Medical-Centre
+# Java-Medical-Center
