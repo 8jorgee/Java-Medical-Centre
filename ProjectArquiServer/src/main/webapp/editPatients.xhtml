@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Rodrigo Moreno system</title>
+</h:head>
+
+<h:body>
+<f:view>
+<h:form>
+
+	<p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true"/>
+
+	<div style="background-color: #003366; padding: 20px 0; text-align: center; color:white">
+			ADD NEW PACIENT
+	</div>
+	<hr />
+
+	<f:metadata>
+		<f:viewParam name="email" value="#{demo.selectedEmail}" />
+	</f:metadata>
+	
+	Name: <p:inputText id="n_name" value="#{demo.selectedPerson.name}"
+					   required="true" requiredMessage="Name is mandatory" />*
+	<br/>
+	Surname: <p:inputText id="n_surname" value="#{demo.selectedPerson.surname}"
+						  required="true" requiredMessage="Surname is mandatory"/>
+	<br/>
+	Birthday: <p:calendar id="n_birthday" value="#{demo.selectedPerson.birthday}"
+						  pattern="dd/MM/yyyy" showButtonPanel="true" yearRange="1900:2025" maxdate="#{demo.selectedPerson.timestamp}"
+						  navigator="true" placeholder="Select birthday" required="true"
+						  requiredMessage="Birthday is mandatory" title="Birthdate" /> *<br/>
+	Details: <p:inputText id="n_details" value="#{demo.selectedPerson.details}"/><br/>
+	Doctor: <p:selectOneMenu id="n_doctorEmail" value="#{demo.selectedPerson.doctor.email}">
+				<f:selectItem itemLabel="Select doctor" itemValue="#{null}" noSelectionOption="true" />
+				<f:selectItems value="#{demo.allDoctors}" var="doc"
+				   itemLabel="#{doc.doctorName} #{doc.surname}"
+				   itemValue="#{doc.email}" />
+			</p:selectOneMenu>
+	<br/>
+	E-mail: <p:inputText id="n_email" value="#{demo.selectedPerson.email}"
+						 required="true" requiredMessage="Email is mandatory"/> *
+	<br/><br/>
+	<h:commandButton value="Save" action="#{demo.savePerson}"/>
+	<h:commandButton value="Cancel" action="#{demo.cancelAction}" immediate="true" />
+
+
+</h:form>
+</f:view>
+</h:body>
+
+</html>
+
+
+
+				
+					

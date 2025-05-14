@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Rodrigo Moreno system</title>
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form>
+			<div style="background-color: #003366; padding: 20px 0; text-align: center;">
+				<p:commandButton value="HOME"
+								 action="#{demo.navigateToHome}"
+								 ajax="false"
+								 styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+								 style="margin-right: 30px;">
+					<f:param name="email" value="NULL"/>
+				</p:commandButton>
+
+				<p:commandButton value="Add new patient"
+								 action="#{demo.navigateToEditPatient}"
+								 ajax="false"
+								 styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+								 style="margin-right: 30px;">
+					<f:param name="email" value="NULL"/>
+				</p:commandButton>
+				<p:commandButton value="Add new Doctor"
+								 action="#{demo.navigateToEditDoctor}"
+								 ajax="false"
+								 styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+								 style="margin-right: 30px;">
+					<f:param name="email" value="NULL"/>
+				</p:commandButton>
+			</div>
+			<hr />
+
+			Name: <b>#{demo.selectedPerson.name}</b><br/>
+			Surname: <b>#{demo.selectedPerson.surname}</b><br/>
+			E-mail: <b>#{demo.selectedPerson.email}</b><br/>
+			Birthday: <b>#{demo.selectedPerson.birthday}</b><br/>
+			Details: <b>#{demo.selectedPerson.details}</b><br/>
+			Doctor: <b>#{demo.selectedPerson.doctor.doctorName}</b><br/>
+			Inserted: <b><h:outputText value="#{demo.selectedPerson.timestamp}"/></b>
+
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>
+
